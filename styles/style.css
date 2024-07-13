@@ -1,3 +1,17 @@
+.pixel-perfect-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.5;
+  filter: sepia(0.6);
+  width: 100%;
+  /*z-index: 10;*/
+  width: 1200px;
+  height: 800px;
+  display: none;
+}
+
 *,
 *::before,
 *::after {
@@ -13,7 +27,7 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: "Fira Sans Condensed", "Arial", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
 }
@@ -61,14 +75,17 @@ ol {
 
 .result__video-container {
   width: 711px;
-  height: 384px;
-  margin-bottom: 21px;
+  height: 386px;
+  margin-bottom: 19px;
   position: relative;
   overflow: hidden;
 }
 
 .result__video {
+  object-fit: cover;
+  object-position: center;
   width: 100%;
+  height: 100%;
 }
 
 .search-form {
@@ -95,7 +112,7 @@ ol {
 }
 
 .search-form__textfield {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", "Arial", sans-serif;
   font-size: 17px;
   width: 225px;
   padding: 2px 0;
@@ -111,17 +128,25 @@ ol {
   cursor: pointer;
 }
 
-.search-form__textfield:focus {
-  outline: none;
-  border: none;
+.search-form__textfield:hover {
+  cursor: text;
 }
 
-.search-form__label:has(:focus-visible) {
+.search-form__textfield:active {
   border: 1px solid white;
 }
 
-.search-form__textfield:hover {
-  cursor: text;
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:focus-visible {
+  outline: 1px solid white;
+  outline-offset: 2px;
+}
+
+.search-form__label:has(.search-form__checkbox:focus-visible) {
+  outline: 1px solid white;
 }
 
 .search-form__checkbox-list {
@@ -140,6 +165,14 @@ ol {
   cursor: pointer;
 }
 
+.search-form__label:hover > .search-form__label-text {
+  text-decoration: underline;
+}
+
+.search-form__checkbox:active ~ .search-form__label-text {
+  text-decoration: none;
+}
+
 .search-form__checkbox:active + .search-form__pseudo-checkbox::before,
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
   display: flex;
@@ -148,10 +181,7 @@ ol {
   height: 15px;
   background: #fff;
   margin: auto;
-}
-
-.search-form__label:hover > .search-form__label-text {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .content__details {
@@ -160,7 +190,7 @@ ol {
 }
 
 .title {
-  font-family: "Oswald", sans-serif;
+  font-family: "Oswald", "Arial", sans-serif;
   color: #fff;
   font-weight: bold;
   font-size: 75px;
@@ -174,6 +204,7 @@ ol {
 }
 
 .content__list {
+  padding: 2px;
   padding-top: 8px;
   height: 303px;
   overflow-y: auto;
@@ -201,19 +232,20 @@ ol {
   background: #545050;
 }
 
-.content__video-card:hover:active {
-  background: #545050;
-}
-
-.content__video-card:hover {
+.content__card-link:hover {
   text-decoration: underline;
 }
 
-.content__video-card:focus {
+.content__card-link:active > .content__video-card {
+  background: #545050;
+  text-decoration: none;
+}
+
+.content__card-link:focus {
   outline: none;
 }
 
-.content__video-card:focus-visible {
+.content__card-link:focus-visible {
   outline: 1px solid white;
   outline-offset: 1px;
 }
@@ -224,28 +256,36 @@ ol {
 }
 
 .content__video-card-title {
-  font-size: 33px;
+  font-size: 30px;
   line-height: 110%;
   text-transform: uppercase;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content__video-card-description {
   font-size: 18px;
   line-height: 92%;
+  margin-top: 3px;
 }
 
 .content__video-card-thumbnail {
+  object-fit: cover;
+  object-position: center;
   width: 194px;
   height: 103px;
 }
 
 .button {
-  height: 34px;
+  padding: 3px 0;
   background: transparent;
   border: 1px solid white;
   color: white;
   font-size: 18px;
-  font-family: "Oswald";
+  font-family: "Fira Sans Condensed", "Arial", sans-serif;
+  font-weight: bold;
   letter-spacing: 0.03rem;
   cursor: pointer;
 }
@@ -259,12 +299,13 @@ ol {
   width: 100%;
 }
 
-.button:active {
-  background: #545050;
-}
-
 .button:hover {
   text-decoration: underline;
+}
+
+.button:active {
+  background: #545050;
+  text-decoration: none;
 }
 
 .button:focus {
