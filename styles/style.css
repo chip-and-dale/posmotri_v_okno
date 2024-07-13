@@ -27,7 +27,7 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
 }
@@ -109,7 +109,7 @@ ol {
 }
 
 .search-form__textfield {
-  font-family: 'Fira Sans Condensed';
+  font-family: "Fira Sans Condensed";
   font-size: 17px;
   width: 225px;
   padding: 2px 0;
@@ -138,7 +138,7 @@ ol {
   cursor: text;
 }
 
-.search-form__checkbox-list{
+.search-form__checkbox-list {
   display: flex;
   align-items: center;
   column-gap: 13px;
@@ -154,12 +154,13 @@ ol {
   cursor: pointer;
 }
 
-.search-form__checkbox:active + .search-form__pseudo-checkbox::before, .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+.search-form__checkbox:active + .search-form__pseudo-checkbox::before,
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
   display: flex;
-  content: '';
+  content: "";
   width: 15px;
   height: 15px;
-  background: #FFF;
+  background: #fff;
   margin: auto;
 }
 
@@ -173,13 +174,13 @@ ol {
 }
 
 .title {
-    font-family: 'Oswald', sans-serif;
-    color: #FFF;
-    font-weight: bold;
-    font-size: 75px;
-    line-height: 94%;
-    text-transform: uppercase;
-    margin-bottom: 16px;
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+  font-weight: bold;
+  font-size: 75px;
+  line-height: 94%;
+  text-transform: uppercase;
+  margin-bottom: 16px;
 }
 
 .content__accent {
@@ -199,7 +200,7 @@ ol {
 
 .content__card-link {
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
   display: block;
 }
 
@@ -258,7 +259,7 @@ ol {
   border: 1px solid white;
   color: white;
   font-size: 18px;
-  font-family: 'Oswald';
+  font-family: "Oswald";
   letter-spacing: 0.03rem;
   cursor: pointer;
 }
